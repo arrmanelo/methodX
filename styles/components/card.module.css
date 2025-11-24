@@ -1,0 +1,35 @@
+/* styles/components/card.module.css */
+
+.card {
+  background-color: var(--background);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-lg);
+  box-shadow: var(--shadow-sm);
+  overflow: hidden;
+  transition: all 0.2s ease;
+}
+
+.card.hoverable {
+  cursor: pointer;
+}
+
+.card.hoverable:hover {
+  box-shadow: var(--shadow-md);
+  transform: translateY(-2px);
+  border-color: var(--border-dark);
+}
+
+.cardHeader {
+  padding: var(--spacing-lg);
+  border-bottom: 1px solid var(--border);
+}
+
+.cardContent {
+  padding: var(--spacing-lg);
+}
+
+.cardFooter {
+  padding: var(--spacing-lg);
+  border-top: 1px solid var(--border);
+  background-color: var(--background-secondary);
+}

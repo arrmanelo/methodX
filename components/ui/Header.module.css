@@ -1,0 +1,179 @@
+/* components/ui/Header.module.css */
+
+.header {
+  background-color: var(--background);
+  border-bottom: 1px solid var(--border);
+  box-shadow: var(--shadow-sm);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--spacing);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 64px;
+}
+
+.logo {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  text-decoration: none;
+}
+
+.nav {
+  display: flex;
+  gap: var(--spacing-lg);
+}
+
+.nav a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.5rem 0;
+  transition: color 0.2s ease;
+  position: relative;
+}
+
+.nav a:hover {
+  color: var(--primary);
+}
+
+.nav a.active {
+  color: var(--primary);
+}
+
+.nav a.active::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 2px;
+  background-color: var(--primary);
+}
+
+.userMenu {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+
+.userInfo {
+  display: flex;
+  align-items: center;
+  gap: var(--spacing);
+}
+
+.email {
+  font-size: 0.875rem;
+  color: var(--text-secondary);
+}
+
+.logoutButton,
+.loginButton {
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius);
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+
+.logoutButton {
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+}
+
+.logoutButton:hover {
+  background-color: var(--border);
+}
+
+.loginButton {
+  background-color: var(--primary);
+  color: white;
+  text-decoration: none;
+  display: inline-block;
+}
+
+.loginButton:hover {
+  background-color: var(--primary-hover);
+}
+
+/* Mobile Menu Button */
+.menuButton {
+  display: none;
+  flex-direction: column;
+  gap: 4px;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+.menuButton span {
+  width: 24px;
+  height: 2px;
+  background-color: var(--text-primary);
+  transition: all 0.3s ease;
+}
+
+/* Mobile Menu */
+.mobileMenu {
+  display: none;
+  flex-direction: column;
+  padding: var(--spacing);
+  gap: var(--spacing);
+  border-top: 1px solid var(--border);
+  background-color: var(--background);
+}
+
+.mobileMenu a {
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-weight: 500;
+  padding: 0.75rem;
+  border-radius: var(--radius);
+  transition: all 0.2s ease;
+}
+
+.mobileMenu a:hover {
+  background-color: var(--background-secondary);
+  color: var(--primary);
+}
+
+.mobileLogout {
+  padding: 0.75rem;
+  border: none;
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  font-weight: 500;
+  border-radius: var(--radius);
+  cursor: pointer;
+  text-align: left;
+}
+
+.mobileLogout:hover {
+  background-color: var(--border);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav,
+  .userInfo {
+    display: none;
+  }
+
+  .menuButton {
+    display: flex;
+  }
+
+  .mobileMenu {
+    display: flex;
+  }
+}

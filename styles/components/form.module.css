@@ -1,0 +1,81 @@
+/* styles/components/form.module.css */
+
+.formGroup {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  margin-bottom: var(--spacing-lg);
+}
+
+.label {
+  font-size: 0.875rem;
+  font-weight: 500;
+  color: var(--text-primary);
+}
+
+.required {
+  color: var(--danger);
+  margin-left: 0.25rem;
+}
+
+.input,
+.textarea,
+.fileInput {
+  width: 100%;
+  padding: 0.625rem 0.875rem;
+  font-size: 1rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  background-color: var(--background);
+  color: var(--text-primary);
+  transition: all 0.2s ease;
+}
+
+.input:focus,
+.textarea:focus,
+.fileInput:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+}
+
+.textarea {
+  min-height: 120px;
+  resize: vertical;
+  font-family: inherit;
+}
+
+.inputError {
+  border-color: var(--danger);
+}
+
+.inputError:focus {
+  border-color: var(--danger);
+  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+}
+
+.errorMessage {
+  font-size: 0.875rem;
+  color: var(--danger);
+}
+
+.fileInput {
+  padding: 0.5rem;
+  cursor: pointer;
+}
+
+.fileInput::file-selector-button {
+  padding: 0.5rem 1rem;
+  margin-right: 1rem;
+  border: none;
+  border-radius: var(--radius-sm);
+  background-color: var(--background-tertiary);
+  color: var(--text-primary);
+  cursor: pointer;
+  font-weight: 500;
+  transition: background-color 0.2s ease;
+}
+
+.fileInput::file-selector-button:hover {
+  background-color: var(--border);
+}
