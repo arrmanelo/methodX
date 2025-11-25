@@ -1,0 +1,186 @@
+/* Переменные для удобства с вашими новыми цветами */
+:root {
+  --footer-bg: #ffffff; /* Темно-зеленый */
+  --footer-text-color: #0a8a2a; /* Белый */
+  --footer-accent-color: #e66400; /* Насыщенный оранжевый */
+  --footer-link-hover: #0a8a2a; /* Белый при наведении (можно сделать чуть светлее оранжевого) */
+  --footer-border-color: #e66400; /* Оранжевая граница */
+  --footer-padding: 40px;
+}
+
+.footer {
+  background-color: var(--footer-bg);
+  color: var(--footer-text-color);
+  padding: var(--footer-padding) 20px;
+  border-top: 5px solid var(--footer-border-color); /* Толстая оранжевая акцентная линия */
+  font-family: Arial, sans-serif;; /* Современный шрифт */
+}
+
+.footerInner {
+  max-width: 1280px; /* Немного шире для современного вида */
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); /* Чуть меньше мин. ширина */
+  gap: 40px; /* Увеличиваем отступы между колонками */
+  text-align: left;
+}
+
+.heading {
+  font-size: 1.35rem; /* Чуть крупнее заголовки */
+  font-weight: 700;
+  margin-bottom: 25px; /* Больше отступ */
+  color: var(--footer-accent-color); /* Оранжевые заголовки */
+  position: relative; /* Для подчеркивания */
+  padding-bottom: 8px; /* Отступ для подчеркивания */
+}
+
+.heading::after { /* Современное подчеркивание */
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 50px; /* Короткое подчеркивание */
+  height: 3px;
+  background-color: var(--footer-accent-color);
+  border-radius: 2px;
+}
+
+/* --- Стили для ссылок и списков --- */
+
+/* Общие стили для всех списков (контакты, навигация) */
+.contactList,
+.navList {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contactItem,
+.navItem {
+  margin-bottom: 12px; /* Чуть больше отступ между пунктами */
+}
+
+.contactLink,
+.navLink,
+.socialLink {
+  color: #0a8a2a;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  transition: color 0.3s ease-in-out, transform 0.2s ease-out;
+  font-weight: 500; 
+  line-height: 1.5; /* Увеличиваем межстрочный интервал */
+}
+
+.contactLink:hover,
+.navLink:hover {
+  color:#e66400; /* Оранжевый при наведении */
+  transform: translateX(8px); /* Более заметное смещение */
+}
+
+/* Иконки (если будут) */
+.icon {
+  margin-right: 12px;
+  font-size: 1.2rem;
+  color: var(--footer-accent-color); /* Оранжевые иконки */
+}
+
+/* --- Стили для секции поддержки и копирайта --- */
+
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.socials {
+  display: flex;
+  gap: 20px; /* Больше расстояние между соцсетями */
+  flex-wrap: wrap; /* Чтобы переносились на маленьких экранах */
+}
+
+.socialLink {
+  color: #0a8a2a;  /* Оранжевые ссылки соцсетей */
+  font-weight: 600; /* Чуть жирнее */
+  display: flex;
+  align-items: center;
+  gap: 8px; /* Отступ между иконкой и текстом */
+}
+
+.socialLink:hover {
+  color:var(--footer-accent-color); /* Белый при наведении */
+  transform: translateY(-3px); /* Небольшой эффект "подъема" */
+}
+
+.socialIcon { /* Если используете иконки */
+  font-size: 1.4rem;
+}
+
+.supportContainer {
+  margin-top: auto;
+  padding-top: 20px; /* Больше отступ сверху */
+  border-top: 1px solid rgba(255, 255, 255, 0.15); /* Более заметная тонкая линия */
+}
+
+.support {
+  display: inline-block;
+  background: #ffe5c7;
+  color: #c25400;
+  padding: 8px 18px;
+  border-radius: 40px;
+  font-size: 14px;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.support strong {
+    color: var(--footer-accent-color); /* Оранжевое выделение */
+    font-weight: 600;
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: rgba(255, 255, 255, 0.6); /* Приглушенный белый */
+}
+
+/* Медиа-запрос для мобильных устройств */
+@media (max-width: 768px) {
+  .footerInner {
+    grid-template-columns: 1fr;
+    text-align: center;
+    gap: 30px; /* Уменьшаем отступ на мобильных */
+  }
+  
+  .heading {
+    display: block;
+    margin-bottom: 15px;
+  }
+
+  .heading::after { /* Центрируем подчеркивание на мобильных */
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contactList,
+  .navList,
+  .socials {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+  }
+
+  .socials {
+      flex-direction: row; /* Сохраняем горизонтальное расположение соцсетей */
+      justify-content: center;
+      gap: 15px; /* Уменьшаем отступ между иконками соцсетей */
+  }
+
+  .footerRight {
+    align-items: center;
+    text-align: center;
+  }
+  .supportContainer {
+      border-top: none; /* Убираем линию, если не нужна на мобильных */
+      padding-top: 0;
+  }
+}
