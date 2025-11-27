@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import Header from '@/components/ui/Header'
+import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
@@ -39,8 +40,10 @@ export default async function RootLayout({
   return (
     <html lang="ru" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <Header user={userWithRole} />
-        <main>{children}</main>
+        <ThemeProvider>
+          <Header user={userWithRole} />
+          <main>{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   )

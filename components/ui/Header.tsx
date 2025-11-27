@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
@@ -17,6 +17,24 @@ export default function Header({ user }: HeaderProps) {
   const pathname = usePathname()
   const router = useRouter()
   const [isMenuOpen, setIsMenuOpen] = useState(false)
+  const [theme, setTheme] = useState<'light' | 'dark'>('light')
+
+  // Загружаем тему при монтировании
+  useEffect(() => {
+    const savedTheme = localStorage.getItem('theme') as 'light' | 'dark' | null
+    if (savedTheme) {
+      setTheme(savedTheme)
+      document.documentElement.setAttribute('data-theme', savedTheme)
+    }
+  }, [])
+
+  // Переключение темы
+  const toggleTheme = () => {
+    const newTheme = theme === 'light' ? 'dark' : 'light'
+    setTheme(newTheme)
+    localStorage.setItem('theme', newTheme)
+    document.documentElement.setAttribute('data-theme', newTheme)
+  }
 
   const handleLogout = async () => {
     const supabase = createClient()
@@ -57,6 +75,11 @@ export default function Header({ user }: HeaderProps) {
 
         {/* User Menu */}
         <div className={styles.userMenu}>
+          {/* Кнопка переключения темы */}
+          <button onClick={toggleTheme} className={styles.themeButton} title="Переключить тему">
+            {theme === 'light' ? '🌙' : '☀️'}
+          </button>
+
           {user ? (
             <div className={styles.userInfo}>
               <span className={styles.email}>{user.email}</span>
