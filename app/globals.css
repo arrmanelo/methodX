@@ -8,9 +8,9 @@
 }
 
 :root {
-  /* Цвета для светлой темы */
-  --primary: #2563eb;
-  --primary-hover: #1d4ed8;
+  /* Цвета */
+  --primary: #32bc19;
+  --primary-hover: #32bc19;
   --secondary: #64748b;
   --success: #22c55e;
   --danger: #ef4444;

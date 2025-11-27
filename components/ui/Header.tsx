@@ -1,4 +1,3 @@
-// components/ui/Header.tsx
 'use client'
 
 import { useState, useEffect } from 'react'
@@ -50,7 +49,7 @@ export default function Header({ user }: HeaderProps) {
     <header className={styles.header}>
       <div className={styles.container}>
         <Link href="/" className={styles.logo}>
-          StudyHub
+          MethodX
         </Link>
 
         {/* Desktop Navigation */}
