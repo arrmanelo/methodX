@@ -64,6 +64,20 @@
   gap: var(--spacing);
 }
 
+.themeButton {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  line-height: 1;
+  transition: transform 0.2s ease;
+}
+
+.themeButton:hover {
+  transform: scale(1.1);
+}
+
 .userInfo {
   display: flex;
   align-items: center;

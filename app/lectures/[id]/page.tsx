@@ -6,7 +6,9 @@ import Card, { CardHeader, CardContent } from '@/components/ui/Card'
 import Button from '@/components/ui/Button'
 import { formatDateTime } from '@/lib/utils'
 
-export default async function LectureDetailPage({ params }: { params: Promise<{ id: string }> }) {
+
+export default async function LectureDetailPage({ params }: { params: { id: string } })
+ {
   const { id } = await params
   const lecture = await getLecture(id)
 
@@ -70,6 +72,12 @@ export default async function LectureDetailPage({ params }: { params: Promise<{ 
                 </a>
               </div>
             )}
+
+            <div style={{ marginTop: '2rem' }}>
+              <Link href={`/lectures/${id}/generate-test`}>
+                <Button className="w-full text-lg py-3">✨ Сгенерировать тест</Button>
+              </Link>
+            </div>
           </CardContent>
         </Card>
       </div>
