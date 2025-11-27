@@ -32,14 +32,14 @@
   position: relative;
   z-index: 10;
   display: grid;
-  grid-template-columns: 1fr;
-  justify-items: center;
-  text-align: center;
+  grid-template-columns: 1fr 1fr; /* две колонки как раньше */
+  align-items: center;
   gap: 40px;
   padding: 140px 20px 60px;
-  max-width: 600px;
+  max-width: 1200px;
   margin: 0 auto;
 }
+
 
 /* === ЛЕВАЯ ЧАСТЬ HERO === */
 .heroLeft {}
@@ -230,59 +230,101 @@
   font-weight: 600;
 }
 
+/* === АДАПТИВКА === */
 
-@media (max-width: 1024px) {
+/* === 1) БОЛЬШИЕ НО НЕ ОГРОМНЫЕ (до 1400px) === */
+@media (max-width: 1400px) {
+  .heroTitle {
+    font-size: 46px;
+  }
+
   .heroInner {
-    grid-template-columns: 1fr;
     gap: 30px;
-    text-align: center;
-  }
-
-  .stats {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .categories {
-    grid-template-columns: 1fr;
+    padding: 120px 20px 50px;
   }
 }
 
-@media (max-width: 600px) {
+/* === 2) СРЕДНИЕ ЭКРАНЫ (ПЛАНШЕТЫ до 1024px) === */
+@media (max-width: 1024px) {
+  .heroInner {
+    grid-template-columns: 1fr; /* 1 колонка вместо 2 */
+    text-align: center;
+  }
+
+  .heroBox {
+    margin: 0 auto;
+    padding: 40px;
+  }
+
+  .heroTitle {
+    font-size: 40px;
+  }
+
+  .stats {
+    grid-template-columns: repeat(2, 1fr); /* было 4 → станет 2 */
+    gap: 14px;
+  }
+
+  .categories {
+    grid-template-columns: 1fr; /* 1 колонка */
+  }
+
+  .footerInner {
+    grid-template-columns: 1fr 1fr; /* пока оставляем 2 */
+    gap: 30px;
+  }
+}
+
+/* === 3) ТЕЛЕФОНЫ (до 640px) === */
+@media (max-width: 420px) {
+  .heroBox {
+    padding: 28px;
+    border-radius: 20px;
+  }
+
   .heroTitle {
     font-size: 32px;
   }
 
-  .heroBox {
-    padding: 25px;
-  }
-
-  .slideRow {
-    flex-direction: column;
-    text-align: center;
+  .heroSubtitle {
+    font-size: 16px;
   }
 
   .slideImg {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
+  }
+
+  .sliderButtons .navBtn {
+    width: 40px;
+    height: 40px;
+    font-size: 20px;
   }
 
   .stats {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr; /* всё по 1 */
   }
-}
 
-@media (max-width: 400px) {
-  .heroTitle {
+  .statNumber {
     font-size: 26px;
   }
 
-  .heroSubtitle {
-    font-size: 14px;
+  .categories {
+    grid-template-columns: 1fr; /* одна колонка */
+    gap: 14px;
   }
 
-  .navBtn {
-    width: 34px;
-    height: 34px;
-    font-size: 18px;
+  .footerInner {
+    grid-template-columns: 1fr; /* одна колонка */
+    text-align: center;
+  }
+
+  .footerRight {
+    text-align: center;
+    margin-top: 20px;
   }
 }
+
+
+
+

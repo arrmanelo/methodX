@@ -53,7 +53,7 @@ const Footer = () => {
 
           <div className={styles.supportContainer}>
             <div className={styles.support}>При поддержке Gym Coders</div>
-            <p>© 2025 Методическая копилка. Все права защищены.</p>
+            <p>© 2025 Методическая копилка</p>
           </div>
         </div>
 

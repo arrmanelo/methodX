@@ -201,3 +201,11 @@ p {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--secondary);
 }
+
+html, body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  box-sizing: border-box;
+}
+*, *::before, *::after { box-sizing: inherit; }
