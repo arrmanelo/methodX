@@ -1,47 +1,52 @@
+// app/actions/ai-tests.ts
 'use server'
 
-import OpenAI from "openai";
+import OpenAI from "openai"
 
-const client = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
-
-// Интерфейс вопроса
 export interface TestQuestion {
-  question: string;
-  options: string[];
-  correct: string;
-  explanation: string;
+  question: string
+  options: string[]
+  correctIndex: number
 }
 
-export async function generateTestFromLecture(
-  lectureText: string,
-  count: number = 5
-): Promise<TestQuestion[]> {
+export async function generateTestFromLecture(text: string, count: number): Promise<TestQuestion[]> {
+  const openai = new OpenAI()  
+
   const prompt = `
-Проанализируй лекцию и создай ${count} тестовых вопросов.
+Ты — генератор тестов. Составь ${count} вопросов multiple-choice из лекции ниже.
 Формат строго JSON массива:
 [
   {
-    "question": "...",
+    "question": "строка",
     "options": ["A", "B", "C", "D"],
-    "correct": "A",
-    "explanation": "..."
+    "correctIndex": число от 0 до 3
   }
 ]
 
-ЛЕКЦИЯ:
-${lectureText}
-  `;
+Важно: правильный ответ НЕ всегда должен быть первым. Делай random correctIndex.
+Лекция:
+${text}
+`
 
-  const response = await client.responses.create({
+  const response = await openai.responses.create({
     model: "gpt-4.1-mini",
-    input: prompt,
-  });
+    input: prompt
+  })
 
-  // получаем чистый текст
-  const text = response.output_text;
+  const raw = response.output_text
+  const json = JSON.parse(raw)
 
-  // парсим JSON
-  return JSON.parse(text);
+  const shuffle = (arr: any[]) => arr.sort(() => Math.random() - 0.5)
+
+  return json.map((q: TestQuestion) => {
+    const options = shuffle([...q.options])
+    const correctOption = q.options[q.correctIndex]
+    const newCorrectIndex = options.indexOf(correctOption)
+
+    return {
+      question: q.question,
+      options,
+      correctIndex: newCorrectIndex
+    }
+  })
 }
