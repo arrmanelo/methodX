@@ -5,6 +5,8 @@ import Link from 'next/link'
 import { usePathname, useRouter } from 'next/navigation'
 import { createClient } from '@/lib/supabase/client'
 import styles from './Header.module.css'
+import ThemeToggle from "@/components/ui/ThemeToggle"
+import LanguageSwitcher from "./LanguageSwitcher"
 
 interface HeaderProps {
   user?: {
@@ -12,6 +14,7 @@ interface HeaderProps {
     role: string
   } | null
 }
+
 
 export default function Header({ user }: HeaderProps) {
   const pathname = usePathname()
@@ -28,13 +31,6 @@ export default function Header({ user }: HeaderProps) {
     }
   }, [])
 
-  // Переключение темы
-  const toggleTheme = () => {
-    const newTheme = theme === 'light' ? 'dark' : 'light'
-    setTheme(newTheme)
-    localStorage.setItem('theme', newTheme)
-    document.documentElement.setAttribute('data-theme', newTheme)
-  }
 
   const handleLogout = async () => {
     const supabase = createClient()
@@ -76,9 +72,8 @@ export default function Header({ user }: HeaderProps) {
         {/* User Menu */}
         <div className={styles.userMenu}>
           {/* Кнопка переключения темы */}
-          <button onClick={toggleTheme} className={styles.themeButton} title="Переключить тему">
-            {theme === 'light' ? '🌙' : '☀️'}
-          </button>
+          <ThemeToggle />
+          <LanguageSwitcher />
 
           {user ? (
             <div className={styles.userInfo}>

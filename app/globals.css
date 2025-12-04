@@ -12,7 +12,7 @@
   --primary: #32bc19;
   --primary-hover: #32bc19;
   --secondary: #64748b;
-  --success: #22c55e;
+  --success: #32bc19;
   --danger: #ef4444;
   --warning: #f59e0b;
   
@@ -209,3 +209,38 @@ html, body {
   box-sizing: border-box;
 }
 *, *::before, *::after { box-sizing: inherit; }
+
+[data-theme="dark"] {
+  --primary: #32bc19;
+  --primary-hover: #2aa916;
+  --secondary: #94a3b8;
+
+  --success: #32bc19;
+  --danger: #f87171;
+  --warning: #fbbf24;
+
+  /* Фон */
+  --background: #0f172a;
+  --background-secondary: #1e293b;
+  --background-tertiary: #334155;
+  --card-background: #1e293b;
+
+  /* Текст */
+  --text-primary: #f8fafc;
+  --text-secondary: #cbd5e1;
+  --text-tertiary: #94a3b8;
+
+  /* Границы */
+  --border: #334155;
+  --border-dark: #475569;
+
+  /* Тени */
+  --shadow-sm: 0 1px 2px 0 rgb(0 0 0 / 0.4);
+  --shadow: 0 1px 3px 0 rgb(0 0 0 / 0.5), 0 1px 2px -1px rgb(0 0 0 / 0.4);
+  --shadow-md: 0 4px 6px -1px rgb(0 0 0 / 0.5), 0 2px 4px -2px rgb(0 0 0 / 0.4);
+  --shadow-lg: 0 10px 15px -3px rgb(0 0 0 / 0.4), 0 4px 6px -4px rgb(0 0 0 / 0.4);
+  .styles.categoryCard {
+    background: var(--card-background);
+  }
+}
+

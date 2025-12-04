@@ -1,0 +1,29 @@
+/* components/ui/LanguageSwitcher.module.css */
+.langBtn {
+  padding: 8px 16px;
+  background: transparent;
+  border: 2px solid var(--primary);
+  color: var(--primary);
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  font-size: 14px;
+}
+
+.langBtn:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
+}
+
+[data-theme="dark"] .langBtn {
+  border-color: var(--primary);
+  color: var(--primary);
+}
+
+[data-theme="dark"] .langBtn:hover {
+  background: var(--primary);
+  color: var(--background);
+}
