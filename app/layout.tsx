@@ -6,7 +6,7 @@ import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
 
 export const metadata: Metadata = {
-  title: 'StudyHub - Методическая копилка',
+  title: 'MethodX - Методическая копилка',
   description: 'Платформа для обмена учебными материалами',
 }
 
