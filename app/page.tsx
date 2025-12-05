@@ -4,6 +4,7 @@ import { createClient } from "@/lib/supabase/server";
 import HomeSlider from "../components/ui/HomeSlider";
 import styles from "../styles/pages/home.module.css";
 import Footer from "../components/ui/Footer";
+import { use } from "react";
 
 export default async function HomePage() {
   const supabase = await createClient();
