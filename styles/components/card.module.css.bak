@@ -7,7 +7,9 @@
   box-shadow: var(--shadow-sm);
   overflow: hidden;
   transition: all 0.2s ease;
-  min-width: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  word-break: break-all;
 }
 
 .card.hoverable {
@@ -23,36 +25,14 @@
 .cardHeader {
   padding: var(--spacing-lg);
   border-bottom: 1px solid var(--border);
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  min-width: 0;
-}
-
-.cardHeader h3 {
-  word-break: break-word;
-  overflow-wrap: break-word;
 }
 
 .cardContent {
   padding: var(--spacing-lg);
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  min-width: 0;
-}
-
-.cardContent p {
-  word-break: break-word;
-  overflow-wrap: break-word;
 }
 
 .cardFooter {
   padding: var(--spacing-lg);
   border-top: 1px solid var(--border);
   background-color: var(--background-secondary);
-  overflow-wrap: break-word;
-  word-wrap: break-word;
-  word-break: break-word;
-  min-width: 0;
 }
