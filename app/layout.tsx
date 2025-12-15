@@ -2,6 +2,7 @@
 import type { Metadata } from 'next'
 import { createClient } from '@/lib/supabase/server'
 import Header from '@/components/ui/Header'
+import Footer from '@/components/ui/Footer'  // 👈 Добавь импорт
 import { ThemeProvider } from '@/components/ThemeProvider'
 import './globals.css'
 
@@ -17,12 +18,10 @@ export default async function RootLayout({
 }) {
   const supabase = await createClient()
   
-  // Получаем текущего пользователя
   const {
     data: { user },
   } = await supabase.auth.getUser()
 
-  // Получаем роль пользователя если авторизован
   let userWithRole = null
   if (user) {
     const { data } = await supabase
