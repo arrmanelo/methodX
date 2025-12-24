@@ -1,0 +1,163 @@
+.container {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 2rem;
+}
+
+.header {
+  text-align: center;
+  margin-bottom: 4rem;
+}
+
+.header h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  color: var(--foreground);
+  background: linear-gradient(135deg, var(--primary) 0%, #9C27B0 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.subtitle {
+  font-size: 1.2rem;
+  color: var(--muted-foreground);
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+.section {
+  margin-bottom: 4rem;
+}
+
+.sectionTitle {
+  font-size: 1.8rem;
+  margin-bottom: 1.5rem;
+  color: var(--foreground);
+}
+
+.highlightedGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+  margin-bottom: 3rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 1.5rem;
+}
+
+.cardLink {
+  text-decoration: none;
+  color: inherit;
+}
+
+.card,
+.highlightedCard {
+  height: 100%;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.card:hover,
+.highlightedCard:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 12px 32px rgba(0, 0, 0, 0.15);
+}
+
+.highlightedCard {
+  border-left: 4px solid;
+  background: linear-gradient(135deg, var(--background) 0%, var(--muted) 100%);
+}
+
+.cardIcon {
+  width: 64px;
+  height: 64px;
+  border-radius: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: white;
+}
+
+.cardTitle {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin: 0 0 0.5rem 0;
+  color: var(--foreground);
+}
+
+.cardDescription {
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: var(--muted-foreground);
+  margin-bottom: 1rem;
+}
+
+.cardAction {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--primary);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: gap 0.3s ease;
+}
+
+.card:hover .cardAction,
+.highlightedCard:hover .cardAction {
+  gap: 1rem;
+}
+
+.features {
+  margin-top: 4rem;
+  padding-top: 3rem;
+  border-top: 2px solid var(--border);
+}
+
+.featuresGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 1.5rem;
+}
+
+.featuresGrid h3 {
+  font-size: 1.1rem;
+  margin: 0 0 0.75rem 0;
+  color: var(--foreground);
+}
+
+.featuresGrid p {
+  margin: 0;
+  font-size: 0.9rem;
+  line-height: 1.5;
+  color: var(--muted-foreground);
+}
+
+@media (max-width: 768px) {
+  .container {
+    padding: 1rem;
+  }
+
+  .header h1 {
+    font-size: 2rem;
+  }
+
+  .subtitle {
+    font-size: 1rem;
+  }
+
+  .sectionTitle {
+    font-size: 1.5rem;
+  }
+
+  .highlightedGrid,
+  .grid,
+  .featuresGrid {
+    grid-template-columns: 1fr;
+  }
+}

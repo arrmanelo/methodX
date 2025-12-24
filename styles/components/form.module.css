@@ -3,14 +3,15 @@
 .formGroup {
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 0.625rem;
   margin-bottom: var(--spacing-lg);
 }
 
 .label {
-  font-size: 0.875rem;
-  font-weight: 500;
+  font-size: 0.9rem;
+  font-weight: 600;
   color: var(--text-primary);
+  letter-spacing: 0.01em;
 }
 
 .required {
@@ -22,13 +23,20 @@
 .textarea,
 .fileInput {
   width: 100%;
-  padding: 0.625rem 0.875rem;
+  padding: 0.75rem 1rem;
   font-size: 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
+  border: 2px solid var(--border);
+  border-radius: var(--radius-lg);
   background-color: var(--background);
   color: var(--text-primary);
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-family: inherit;
+}
+
+.input:hover,
+.textarea:hover,
+.fileInput:hover {
+  border-color: var(--border-dark);
 }
 
 .input:focus,
@@ -36,13 +44,14 @@
 .fileInput:focus {
   outline: none;
   border-color: var(--primary);
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.1);
+  box-shadow: 0 0 0 4px rgba(37, 99, 235, 0.1);
+  background-color: var(--background);
 }
 
 .textarea {
-  min-height: 120px;
+  min-height: 140px;
   resize: vertical;
-  font-family: inherit;
+  line-height: 1.6;
 }
 
 .inputError {
@@ -51,31 +60,34 @@
 
 .inputError:focus {
   border-color: var(--danger);
-  box-shadow: 0 0 0 3px rgba(239, 68, 68, 0.1);
+  box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.1);
 }
 
 .errorMessage {
   font-size: 0.875rem;
   color: var(--danger);
+  font-weight: 500;
 }
 
 .fileInput {
-  padding: 0.5rem;
+  padding: 0.625rem;
   cursor: pointer;
 }
 
 .fileInput::file-selector-button {
-  padding: 0.5rem 1rem;
+  padding: 0.625rem 1.25rem;
   margin-right: 1rem;
   border: none;
-  border-radius: var(--radius-sm);
-  background-color: var(--background-tertiary);
-  color: var(--text-primary);
+  border-radius: var(--radius);
+  background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+  color: white;
   cursor: pointer;
-  font-weight: 500;
-  transition: background-color 0.2s ease;
+  font-weight: 600;
+  font-size: 0.9rem;
+  transition: all 0.3s ease;
 }
 
 .fileInput::file-selector-button:hover {
-  background-color: var(--border);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-md);
 }

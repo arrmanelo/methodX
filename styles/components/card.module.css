@@ -1,12 +1,12 @@
 ﻿/* styles/components/card.module.css */
 
 .card {
-  background-color: var(--card-background, var(--background));
+  background-color: var(--background);
   border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  box-shadow: var(--shadow-sm);
+  border-radius: var(--radius-xl);
+  box-shadow: var(--shadow-md);
   overflow: hidden;
-  transition: all 0.2s ease;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   min-width: 0;
 }
 
@@ -15,9 +15,9 @@
 }
 
 .card.hoverable:hover {
-  box-shadow: var(--shadow-md);
-  transform: translateY(-2px);
-  border-color: var(--border-dark);
+  box-shadow: var(--shadow-xl);
+  transform: translateY(-4px);
+  border-color: var(--primary);
 }
 
 .cardHeader {
